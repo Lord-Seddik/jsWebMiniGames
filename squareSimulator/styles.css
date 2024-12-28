@@ -1,0 +1,18 @@
+
+
+    canvas {
+        border: 2px solid black;
+        display: block;
+        margin: 10px auto;
+        
+    }
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+    .back{
+        margin-right:400px;
+    }
