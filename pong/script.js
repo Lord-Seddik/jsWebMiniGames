@@ -80,8 +80,8 @@
     }
     // Game entities
     particles = [];
-    lefthammer = new rectangle(0, 0, 50, 100, 'black', 0, 0,'S');
-    righthammer = new rectangle(canva.width-50, 0, 50, 100, 'black', 0, 0,'M');
+    lefthammer = new rectangle(0, 0, 50, 200, 'white', 0, 0,'S');
+    righthammer = new rectangle(canva.width-50, 0, 50, 200, 'white', 0, 0,'M');
     secondarylefthammer = new rectangle(0, 0, 0, 0, 'black', 0, 0,'S');
     secondaryrighthammer = new rectangle(canva.width - 600, 0, 0, 0, 'black', 0, 0,'M');
     const board = canva.getContext('2d');
@@ -89,7 +89,7 @@
     scoreright = 0;
     randomx = Math.floor(Math.random() * 1000);
     randomy = Math.floor(Math.random() * 1000);
-    square = new Square(randomx, randomy, 50, 'green', 5, 5);
+    square = new Square(randomx, randomy, 50, 'white', 5, 5);
 
     // Function to detect collision between two squares
     function checkCollision(square, rectangle) {
@@ -102,16 +102,16 @@
     }
     function movement(event){
         if(event.key === 'z'){
-            lefthammer.speedY = -20;
+            lefthammer.speedY = -5;
         }
         if(event.key === 's'){
-            lefthammer.speedY = 20;
+            lefthammer.speedY = 5;
         }
         if(event.key === 'i'){
-            righthammer.speedY = -20;
+            righthammer.speedY = -5;
         }
         if(event.key === 'k'){
-            righthammer.speedY = 20;
+            righthammer.speedY = 5;
         }
         if(event.key ==='e'){
             secondarylefthammer.speedY = -5;
@@ -154,11 +154,12 @@
             righthammer.draw(ctx);
             secondaryrighthammer.draw(ctx);
 
-            board.fillStyle = 'black';
+            board.fillStyle = 'white';
             board.textAlign = 'center';
             board.font = '30px Arial';
             board.fillText('PONG', 1000, 50);
             board.fillText(scoreleft + ' - ' + scoreright, 1000, 100);
+            board.fillText('ball speed: ' + Math.abs(square.speedY)    , 1000, 200);
             //add score left if hit right wall
             if (square.x + square.size > canva.width) {
                 square.move();
